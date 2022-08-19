@@ -6,7 +6,7 @@ exports.config = {
 	},
 
 	framework: 'jasmine',
-	specs: ['test.spec.js'],
+	specs: ['./tests/calculator.spec.js'],
 
 	jasmineNodeOpts: {
 		defaultTimeoutInterval:6000

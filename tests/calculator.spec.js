@@ -1,14 +1,15 @@
-const { hasUncaughtExceptionCaptureCallback } = require("process");
+const { Calculator } = require("../pages/calculator");
 
 describe('To jest test w protractor jasmine', function () {
+
+	const calculator = new Calculator()
+
 	it('Tutaj cos testuje', async function () {
 		//browser.waitForAngularEnabled(false)
 		//browser.get('http://www.myportal.abb.com');
 		
 		browser.get('https://juliemr.github.io/protractor-demo/');
-		var inputFirst = element(by.model('first'))
-		inputFirst.sendKeys(2);
-		expect(inputFirst.getAttribute('value')).toEqual('2')
+		calculator.fillValueInFirstInput(3)
 		browser.sleep(3000);
 	})
 })
