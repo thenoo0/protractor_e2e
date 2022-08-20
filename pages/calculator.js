@@ -2,18 +2,19 @@ class Calculator {
 
     constructor() {
         this.inputFirst = element(by.model('first'))
+        this.inputSecond = element(by.model('second'))
     }
     
 
-    fillValueInFirstInput(value) {
-        this.inputFirst.sendKeys(value);
-        this.checkValueInFirsInput(value);
+    fillValueInInput(inputName, value) {
+        let input = element(by.model(inputName))
+        input.sendKeys(value);
+        this.checkValueInInput(input, value)
     }
 
-    checkValueInFirsInput(value) {
+    checkValueInInput(input, value) {
         let expectResult = value.toString()
-        expect(this.inputFirst.getAttribute('value')).toEqual(expectResult);
-
+        expect(input.getAttribute('value')).toEqual(expectResult);
     }
 }
 

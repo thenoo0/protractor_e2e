@@ -1,15 +1,24 @@
 const { Calculator } = require("../pages/calculator");
 
-describe('To jest test w protractor jasmine', function () {
+describe('Testing calculator page', function () {
 
 	const calculator = new Calculator()
 
-	it('Tutaj cos testuje', async function () {
+	beforeAll(function () {
 		//browser.waitForAngularEnabled(false)
 		//browser.get('http://www.myportal.abb.com');
-		
+
 		browser.get('https://juliemr.github.io/protractor-demo/');
-		calculator.fillValueInFirstInput(3)
+	})
+
+
+	it('Fill first input', async function () {
+		calculator.fillValueInInput('first', 3)
+	})
+
+	it('Fill second input', function () {
+		calculator.fillValueInInput('second', 10)
 		browser.sleep(3000);
 	})
+
 })
