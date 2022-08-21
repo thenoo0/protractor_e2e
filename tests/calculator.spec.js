@@ -16,9 +16,13 @@ describe('Testing calculator page', function () {
 		calculator.fillValueInInput('first', 3)
 	})
 
+	it('Error in the input', function () {
+		calculator.fillValueInInput('third', 23)
+	})
+
 	it('Fill second input', function () {
 		calculator.fillValueInInput('second', 10)
-		browser.sleep(3000);
+		browser.sleep(3000); 
 	})
 
 })
