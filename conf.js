@@ -1,21 +1,3 @@
-var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-
-var reporter = new HtmlScreenshotReporter({
-	dest: 'target/screenshots',
-	filename: 'my-report.html',
-	cleanDestination: false,
-	showSummary: false,
-	showQuickLinks: false,
-	showConfiguration: false,
-	reportTitle: null,
-	//userCss: '../report.css',
-	reportOnlyFailedSpecs: false,
-	captureOnlyFailedSpecs: true,
-	inlineImages: false
-
-
-});
-
 exports.config = {
 	directConnect: true,
 
@@ -28,24 +10,5 @@ exports.config = {
 
 	jasmineNodeOpts: {
 		defaultTimeoutInterval: 6000
-	},
-
-	// Setup the report before any tests start
-	beforeLaunch: function () {
-		return new Promise(function (resolve) {
-			reporter.beforeLaunch(resolve);
-		});
-	},
-
-	// Assign the test reporter to each running instance
-	onPrepare: function () {
-		jasmine.getEnv().addReporter(reporter);
-	},
-
-	// Close the report after all tests finish
-	afterLaunch: function (exitCode) {
-		return new Promise(function (resolve) {
-			reporter.afterLaunch(resolve.bind(this, exitCode));
-		});
 	}
 }
