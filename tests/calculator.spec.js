@@ -12,17 +12,25 @@ describe('Testing calculator page', function () {
 	})
 
 
-	it('Fill first input', async function () {
+	it('Check page title', function () {
+		calculator.checkPageTitle()
+	})
+
+	it('Check perfoming operations', async function () {
 		calculator.fillValueInInput('first', 3)
-	})
-
-	it('Error in the input', function () {
-		calculator.fillValueInInput('third', 23)
-	})
-
-	it('Fill second input', function () {
 		calculator.fillValueInInput('second', 10)
-		browser.sleep(3000); 
 	})
+
+	it('Check History table elements', function () {
+		calculator.checkHistoryTable()
+	})
+
+	// it('Wait some time at the end', function () {
+	// 	browser.sleep(3000)
+	// })
+
+
+
+
 
 })
