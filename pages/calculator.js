@@ -9,6 +9,10 @@ class Calculator {
         this.operatorInput = element(by.model('operator'))
         this.historyTableTitle = element(by.css('h4'))
         this.historyColumnNames = element.all(by.css('table th'))
+        this.firstTableRow = element.all(by.css('table tbody tr')).first()
+        this.lastOperationTime = element.all(by.css('table tbody tr td')).get(0)
+        this.lastOperationExpression = element.all(by.css('table tbody tr td')).get(1)
+        this.lastOperationResult = element.all(by.css('table tbody tr td')).get(2)
     }
 
 
@@ -36,8 +40,19 @@ class Calculator {
                 expect($columns[i]).toEqual(expectedColumnName[i])
             }
         })
+    }
 
+    getResult() {
+        this.goButton.click()
+    }
 
+    checkResult(number) {
+        expect(this.result.getText()).toEqual(number.toString())
+        expect(this.firstTableRow.isDisplayed()).toBe(true)
+        expect(this.lastOperationExpression.isDisplayed()).toBe(true)
+        expect(this.lastOperationTime.isDisplayed()).toBe(true)
+        expect(this.lastOperationResult.isDisplayed()).toBe(true)
+        expect(this.lastOperationResult.getText()).toEqual(number.toString())
     }
 
 

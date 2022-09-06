@@ -16,13 +16,18 @@ describe('Testing calculator page', function () {
 		calculator.checkPageTitle()
 	})
 
-	it('Check perfoming operations', async function () {
-		calculator.fillValueInInput('first', 3)
-		calculator.fillValueInInput('second', 10)
-	})
-
 	it('Check History table elements', function () {
 		calculator.checkHistoryTable()
+	})
+
+	it('Check perfoming operations', async function () {
+		let first = 3
+		let second = 10
+		calculator.fillValueInInput('first', first)
+		calculator.fillValueInInput('second', second)
+		calculator.getResult()
+		calculator.checkResult(first + second)
+
 	})
 
 	// it('Wait some time at the end', function () {
