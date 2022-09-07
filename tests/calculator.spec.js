@@ -23,16 +23,38 @@ describe('Testing calculator page', function () {
 	it('Check perfoming operations', async function () {
 		let first = 3
 		let second = 10
-		calculator.fillValueInInput('first', first)
-		calculator.fillValueInInput('second', second)
-		calculator.getResult()
-		calculator.checkResult(first + second)
+		let operators = ['+', '-', '/', '*', '%']
+		
+
+		for (let operator of operators) {
+			calculator.fillValues(first, second, operator)
+			calculator.getResult()
+			switch (operator) {
+				case '+':
+					calculator.checkResult(first + second, operator)
+					break;
+				case '-':
+					calculator.checkResult(first - second, operator)
+					break;
+				case '/':
+					calculator.checkResult(first / second, operator)
+					break;
+				case '*':
+					calculator.checkResult(first * second, operator)
+					break;
+				case '%':
+					calculator.checkResult(first % second, operator)
+					break;
+
+			}
+		}
+
 
 	})
 
-	// it('Wait some time at the end', function () {
-	// 	browser.sleep(3000)
-	// })
+	xit('Wait some time at the end', function () {
+		browser.sleep(3000)
+	})
 
 
 

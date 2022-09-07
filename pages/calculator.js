@@ -13,15 +13,19 @@ class Calculator {
         this.lastOperationTime = element.all(by.css('table tbody tr td')).get(0)
         this.lastOperationExpression = element.all(by.css('table tbody tr td')).get(1)
         this.lastOperationResult = element.all(by.css('table tbody tr td')).get(2)
+        this.operator = element(by.model('operator'))
     }
 
 
-    fillValueInInput(inputName, value) {
-        let input = element(by.model(inputName))
-        input.sendKeys(value);
+    fillValues(firstValue, secondValue, operator) {
 
-        let expectResult = value.toString()
-        expect(input.getAttribute('value')).toEqual(expectResult);
+        this.inputFirst.sendKeys(firstValue);
+        this.inputSecond.sendKeys(secondValue);
+
+        expect(this.inputFirst.getAttribute('value')).toEqual(firstValue.toString());
+        expect(this.inputSecond.getAttribute('value')).toEqual(secondValue.toString());
+
+        element(by.cssContainingText('option', operator)).click()
 
     }
 
