@@ -3,3 +3,4 @@ target
 screenshots
 xmlresults.xml
 ProtractorTestReport.html
+jenkins/

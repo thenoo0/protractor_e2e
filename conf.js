@@ -9,7 +9,7 @@ exports.config = {
 	specs: ['./tests/calculator.spec.js'],
 
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 6000
+		defaultTimeoutInterval: 15000
 	},
 
 	onPrepare: function () {
