@@ -1,14 +1,16 @@
 class Calculator {
 
     constructor() {
+        this.calculatorContent = $('form')
         this.pageTitle = element(by.css('h3'))
-        this.inputFirst = element(by.model('first'))
+        this.inputFirst = this.calculatorContent.element(by.model('first'))
         this.inputSecond = element(by.model('second'))
         this.goButton = element(by.cssContainingText('button', 'Go!'))
         this.result = $('h2.ng-binding')
         this.operatorInput = element(by.model('operator'))
+        this.historyTable = $('table')
         this.historyTableTitle = element(by.css('h4'))
-        this.historyColumnNames = element.all(by.css('table th'))
+        this.historyColumnNames = this.historyTable.all(by.css('table th'))
         this.firstTableRow = element.all(by.css('table tbody tr')).first()
         this.lastOperationTime = element.all(by.css('table tbody tr td')).get(0)
         this.lastOperationExpression = element.all(by.css('table tbody tr td')).get(1)
