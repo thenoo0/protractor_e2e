@@ -1,3 +1,7 @@
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+var jasmineReporters = require('jasmine-reporters');
+
+
 exports.config = {
 	directConnect: true,
 
@@ -13,7 +17,6 @@ exports.config = {
 	},
 
 	onPrepare: function () {
-		var jasmineReporters = require('jasmine-reporters');
 		jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
 			consolidateAll: true,
 			savePath: './',
@@ -41,6 +44,13 @@ exports.config = {
 				}
 			}
 		});
+
+		jasmine.getEnv().addReporter(new SpecReporter({
+			displayFailuresSummary: true,
+			displayFailuredSpec: true,
+			displaySuiteNumber: true,
+			displaySpecDuration: true
+		  }));
 	},
 
 	//HTMLReport called once tests are finished
