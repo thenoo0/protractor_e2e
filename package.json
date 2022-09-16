@@ -19,7 +19,9 @@
     "url": "https://github.com/thenoo0/protractor_e2e/issues"
   },
   "homepage": "https://github.com/thenoo0/protractor_e2e#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-spec-reporter": "^7.0.0"
+  },
   "dependencies": {
     "jasmine-reporters": "^2.5.0",
     "protractor-html-reporter-2": "^1.0.4"
